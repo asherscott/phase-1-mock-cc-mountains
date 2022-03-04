@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script defer src="index.js"></script>
+    <link rel="stylesheet" href="https://cdn.simplecss.org/simple.min.css" />
+    <title>Mountain Mock Challenge</title>
+  </head>
+  <body>
+    <header>
+      <h2>Lift Tickets</h2>
+      <h3>Come ski and ride on mountains that aren't flat!!</h3>
+    </header>
+    <form id="new-mountain" style="display: none">
+      <label>Name:</label>
+      <input type="text" name="name" id="name" /> <br />
+      <label>Location:</label>
+      <input type="text" name="location" id="location" /> <br />
+      <label>Image Url:</label>
+      <input type="text" name="image" id="image" /> <br />
+      <input type="submit" value="Create Mountain" />
+    </form>
+    <div id="mountian-details">
+      <img
+        id="mountain-image"
+        src="https://socialistmodernism.com/wp-content/uploads/2017/07/placeholder-image.png?w=640"
+        width="630"
+      />
+
+      <h5 id="mountain-name">Mountain Name</h5>
+      <p id="mountain-location">Mountain Location</p>
+      <button id="like-button">
+        <span id="mountain-likes">0</span>
+        ❤️
+      </button>
+    </div>
+    <div>
+      <h4>Mountains</h4>
+      <ul id="mountains-list">
+        <!-- Mountains Names go here -->
+      </ul>
+    </div>
+  </body>
+</html>

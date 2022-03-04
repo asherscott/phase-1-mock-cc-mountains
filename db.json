@@ -1,0 +1,39 @@
+{
+    "mountains": [
+        {
+            "id": "1",
+            "name": "Revelstoke",
+            "location": "Revelstoke, British Columbia",
+            "likes": 52,
+            "image":"https://i0.heartyhosting.com/www.powder.com/wp-content/uploads/2018/10/revelstoke-jj-dropin-colour_ian_houghton.jpg?resize=1920%2C1080&ssl=1"
+        },
+        {
+            "id": "2",
+            "name": "Kicking Horse",
+            "location": "Kicking Horse, BC, Canada",
+            "likes": 25,
+            "image": "https://snowboardtraveler.com/wp-content/uploads/2019/10/Kicking-Horse-mountain-guide-2-1.jpg"
+        },
+        {
+            "id": "3",
+            "name": "Sunshine Banff",
+            "location": "Banff, Alberta",
+            "likes": 51,
+            "image":"https://www.skibanff.com/application/files/8216/1592/1661/InDesign_-_Blog_Photo_Templates_vilage.jpg"
+        },
+        {
+            "id": "4",
+            "name": "Lake Louise",
+            "location": "Lake Louise, Alberta",
+            "likes": 5,
+            "image":"https://www.snowmagazine.com/images/ski-resorts/canada/lakelouise-resortbase.jpg"
+        },
+        {
+            "id": "5",
+            "name": "Taos",
+            "location": "Taos, New Mexico",
+            "likes": 1,
+            "image":"https://www.planetware.com/wpimages/2020/09/new-mexico-top-ski-resorts-taos-ski-valley.jpg"
+        }
+    ]
+}
