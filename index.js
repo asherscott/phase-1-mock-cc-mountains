@@ -6,20 +6,23 @@ const mtnLikes      = document.querySelector('#mountain-likes')
 const mtnUl         = document.querySelector('ul')
 
 let mtnLiked;
-
+let mountainsArray;
 
 
 
 fetch('http://localhost:3000/mountains')
 .then(res => res.json())
-.then(mountains => randMountain(mountains))
+.then(mountains => {
+    mountainsArray = mountains
+    randMountain(mountainsArray)
+})
 
 
 
 function randMountain(mountains) {
 
     // DELIVERABLE 1
-    randMtn = Math.floor( Math.random() * 5 )
+    randMtn = Math.floor( Math.random() * mountains.length )
 
     mtnImg.src              = mountains[randMtn].image
     mtnNameH5.textContent   = mountains[randMtn].name
@@ -28,40 +31,21 @@ function randMountain(mountains) {
     mtnLiked                = mountains[randMtn]
 
 
-
     // DELIVERABLE 2
-    mountains.forEach(mountain => {
-        const li = document.createElement('li')
-        li.textContent = mountain.name
-        mtnUl.append(li)
-
-        li.addEventListener('click', () => displayDetail(mountain))
-    })
-
-
-
-    // DELIVERABLE 3
-    const likeBtn = document.querySelector('button')
-    likeBtn.addEventListener('click', () => {
-        likesNum = parseFloat(mtnLikes.textContent)
-        likesNum += 1
-        mtnLikes.textContent = likesNum
-
-
-
-        // DELIVERABLE 4
-        mtnLiked.likes += 1
-
-        fetch(`http://localhost:3000/mountains/${mtnLiked.id}`, {
-            method: "PATCH",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify(mtnLiked)
-        })
-
-    })
+    mountainsArray.forEach((mountain) => displayList(mountain))
 }
+
+
+
+function displayList(mountain) {
+    const li = document.createElement('li')
+    li.textContent = mountain.name
+    mtnUl.append(li)
+
+    li.addEventListener('click', () => displayDetail(mountain))
+}
+
+
 
 function displayDetail(mountain) {
     mtnImg.src              = mountain.image
@@ -70,4 +54,64 @@ function displayDetail(mountain) {
     mtnLikes.textContent    = mountain.likes
     mtnLiked                = mountain
 
+}
+
+
+
+// DELIVERABLE 3
+const likeBtn = document.querySelector('button')
+likeBtn.addEventListener('click', () => {
+    mtnLikes.textContent = parseFloat(mtnLikes.textContent) + 1
+
+
+
+    // DELIVERABLE 4
+    mtnLiked.likes += 1
+
+    fetch(`http://localhost:3000/mountains/${mtnLiked.id}`, {
+        method: "PATCH",
+        headers: {
+            "Content-Type": "application/json",
+        },
+        body: JSON.stringify(mtnLiked)
+    })
+})
+
+
+
+// DELIVERABLE 5
+// BUG: right after creating a new mountain, the likes for that mountain will not persist after first refresh, but will persist for later refreshes
+const form = document.querySelector('form')
+form.style.display = 'block';
+const inputs = document.querySelectorAll('input')
+
+
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault()
+    newMountain()
+})
+
+
+
+function newMountain() {
+
+    const newMtn = {
+        name:       inputs[0].value,
+        location:   inputs[1].value,
+        image:      inputs[2].value,
+        likes:      0,
+    }
+
+    fetch(`http://localhost:3000/mountains`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(newMtn)
+    })
+    .then(res => res.json())
+    .then(mtn => console.log(mtn))
+
+    displayList(newMtn)
 }

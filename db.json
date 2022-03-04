@@ -11,21 +11,21 @@
       "id": "2",
       "name": "Kicking Horse",
       "location": "Kicking Horse, BC, Canada",
-      "likes": 25,
+      "likes": 33,
       "image": "https://snowboardtraveler.com/wp-content/uploads/2019/10/Kicking-Horse-mountain-guide-2-1.jpg"
     },
     {
       "id": "3",
       "name": "Sunshine Banff",
       "location": "Banff, Alberta",
-      "likes": 62,
+      "likes": 69,
       "image": "https://www.skibanff.com/application/files/8216/1592/1661/InDesign_-_Blog_Photo_Templates_vilage.jpg"
     },
     {
       "id": "4",
       "name": "Lake Louise",
       "location": "Lake Louise, Alberta",
-      "likes": 5,
+      "likes": 13,
       "image": "https://www.snowmagazine.com/images/ski-resorts/canada/lakelouise-resortbase.jpg"
     },
     {
@@ -34,6 +34,20 @@
       "location": "Taos, New Mexico",
       "likes": 6,
       "image": "https://www.planetware.com/wpimages/2020/09/new-mexico-top-ski-resorts-taos-ski-valley.jpg"
+    },
+    {
+      "name": "Asher's great top",
+      "location": "my computer",
+      "image": "https://www.skibanff.com/application/files/8216/1592/1661/InDesign_-_Blog_Photo_Templates_vilage.jpg",
+      "likes": 10,
+      "id": "J4q72Ps"
+    },
+    {
+      "name": "will the like sustain?",
+      "location": "no wear",
+      "image": "https://www.skibanff.com/application/files/8216/1592/1661/InDesign_-_Blog_Photo_Templates_vilage.jpg",
+      "likes": 5,
+      "id": "nFVPyrT"
     }
   ]
 }
