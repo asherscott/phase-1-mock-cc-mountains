@@ -5,6 +5,8 @@ const mtnLocalH5    = document.querySelector('#mountain-location')
 const mtnLikes      = document.querySelector('#mountain-likes')
 const mtnUl         = document.querySelector('ul')
 
+let mtnLiked;
+
 
 
 
@@ -23,6 +25,7 @@ function randMountain(mountains) {
     mtnNameH5.textContent   = mountains[randMtn].name
     mtnLocalH5.textContent  = mountains[randMtn].location
     mtnLikes.textContent    = mountains[randMtn].likes
+    mtnLiked                = mountains[randMtn]
 
 
 
@@ -47,18 +50,15 @@ function randMountain(mountains) {
 
 
         // DELIVERABLE 4
-        const mtnLiked = mountains.find((mountain) => mtnNameH5.textContent === mountain.name)
         mtnLiked.likes += 1
 
-        const updateLikes = {
+        fetch(`http://localhost:3000/mountains/${mtnLiked.id}`, {
             method: "PATCH",
             headers: {
               "Content-Type": "application/json",
-              "Accept": "application/json"
             },
-            body: JSON.stringify(mountains)
-        };
-        // fetch('http://localhost:3000/mountains', updateLikes)
+            body: JSON.stringify(mtnLiked)
+        })
 
     })
 }
@@ -68,4 +68,6 @@ function displayDetail(mountain) {
     mtnNameH5.textContent   = mountain.name
     mtnLocalH5.textContent  = mountain.location
     mtnLikes.textContent    = mountain.likes
+    mtnLiked                = mountain
+
 }
