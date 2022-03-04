@@ -15,7 +15,6 @@ fetch('http://localhost:3000/mountains')
 
 function randMountain(mountains) {
     let mountainImgs = [];
-    console.log(mountains)
 
 
 
@@ -41,11 +40,31 @@ function randMountain(mountains) {
         li.addEventListener('click', () => displayDetail(mountain))
     })
 
+
+
     // DELIVERABLE 3
     const likeBtn = document.querySelector('button')
     likeBtn.addEventListener('click', () => {
         likesNum = parseFloat(mtnLikes.textContent)
-        mtnLikes.textContent = likesNum += 1
+        likesNum += 1
+        mtnLikes.textContent = likesNum
+
+
+
+        // DELIVERABLE 4
+        const mtnLiked = mountains.find((mountain) => mtnNameH5.textContent === mountain.name)
+        mtnLiked.likes += 1
+
+        const updateLikes = {
+            method: "PATCH",
+            headers: {
+              "Content-Type": "application/json",
+              "Accept": "application/json"
+            },
+            body: JSON.stringify(mountains)
+        };
+        // fetch('http://localhost:3000/mountains', updateLikes)
+
     })
 }
 
